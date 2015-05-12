@@ -7,9 +7,11 @@ end
 --Database Connection
 
 function DBControl(sMode, sUser, sPass)
-	ModeList = {"login"}
-	url = "http://www.roeboatcorpcom.ipage.com/cc/ccLogin.php"
+	ModeList = {"login", "insert"}
+	url = "http://www.roeboatcorpcom.ipage.com/cc/ccLogin.php?"
 if sMode == ModeList[1] then
+	local request = http.post(url, "command="..textutils.urlEncode(tostring(sMode)).."&".."username="..textutils.urlEncode(tostring(sUser)).."&".."password="..textutils.urlEncode(tostring(sPass)))
+elseif sMode == ModeList[2] then
 	local request = http.post(url, "command="..textutils.urlEncode(tostring(sMode)).."&".."username="..textutils.urlEncode(tostring(sUser)).."&".."password="..textutils.urlEncode(tostring(sPass)))
 	end
 end
