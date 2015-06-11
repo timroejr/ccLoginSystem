@@ -21,7 +21,6 @@ if sMode == ModeList[1] then
 end
 end
 
-print("> Roeboat Corp Universal NATO Login System")
 print("> Username: ")
 local sUsername = read()
 print("> Password:")
